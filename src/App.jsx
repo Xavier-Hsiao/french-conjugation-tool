@@ -2,6 +2,7 @@ import styles from "./App.module.scss";
 import * as FrenchVerbs from "french-verbs";
 import Lefff from "french-verbs-lefff/dist/conjugations.json";
 import Header from "./components/Header/Header";
+import Search from "./components/Search/Search";
 
 export default function App() {
   return (
@@ -10,15 +11,6 @@ export default function App() {
       <Search />
       <Main />
       <Footer />
-    </div>
-  );
-}
-
-function Search() {
-  return (
-    <div className={styles.search}>
-      <input type="text" className={styles.searchInput} />
-      <img src="src/assets/images/icon-search.svg" alt="search-icon" />
     </div>
   );
 }
