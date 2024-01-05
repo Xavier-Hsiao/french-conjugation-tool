@@ -1,0 +1,107 @@
+@use "../../styles/color.module.scss";
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 58px;
+  margin-bottom: 52px;
+
+  .logo {
+    width: 32px;
+    height: 36.5px;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .tenseGroup {
+      position: relative;
+
+      select {
+        appearance: none;
+        width: 120px;
+        height: 24px;
+        padding: 0 10px;
+        outline-style: none;
+        border: none;
+        border-right: 1px solid #979797;
+        font-size: 18px;
+        font-weight: bold;
+        color: color.$text-primary-light;
+        cursor: pointer;
+      }
+
+      .down {
+        position: absolute;
+        top: 50%;
+        right: 10%;
+        z-index: 0;
+        transform: translateY(-50%);
+        width: 12px;
+        height: 6px;
+      }
+    }
+
+    .modeGroup {
+      box-sizing: content-box;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 80px;
+      padding-left: 20px;
+
+      // Toggle switch making
+      .switch {
+        display: inline;
+        position: relative;
+        width: 40px;
+        height: 20px;
+        // Hide default HTML checkbox
+        input {
+          width: 0;
+          height: 0;
+          opacity: 0;
+        }
+
+        .slider {
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          background-color: #979797;
+          border-radius: 10px;
+          transition: 0.4s;
+          cursor: pointer;
+
+          &:before {
+            content: "";
+            position: absolute;
+            left: 4px;
+            bottom: 3px;
+            width: 14px;
+            height: 14px;
+            background-color: color.$background-light;
+            border-radius: 50%;
+            transition: 0.4s;
+          }
+        }
+
+        input:checked + .slider {
+          background-color: color.$highlight-primary;
+        }
+        input:checked + .slider:before {
+          transform: translateX(17px);
+        }
+      }
+    }
+  }
+
+  .moon {
+    width: 20px;
+    height: 20px;
+  }
+}
