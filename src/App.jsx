@@ -3,6 +3,8 @@ import * as FrenchVerbs from "french-verbs";
 import Lefff from "french-verbs-lefff/dist/conjugations.json";
 import Header from "./components/Header/Header";
 import Search from "./components/Search/Search";
+import Main from "./components/Main/Main";
+import Footer from "./components/Footer/Footer";
 
 export default function App() {
   return (
@@ -15,37 +17,3 @@ export default function App() {
   );
 }
 
-function Main() {
-  return (
-    <main>
-      <h1>Aller</h1>
-      <div className={styles.divider}>
-        <p>Conjugaison</p>
-      </div>
-      <div className={styles.result}>
-        <p>Je vais</p>
-        <p>Tu vas</p>
-        <p>Il va</p>
-        <p>Elle va</p>
-        <p>Nous allons</p>
-        <p>Vous allez</p>
-        <p>Ils vont</p>
-      </div>
-    </main>
-  );
-}
-
-function Footer() {
-  return (
-    <footer>
-      <div className="source">
-        <span>Source</span>
-        <a href="#">https://en.wikitionary.org/wiki/blah</a>
-        <img
-          src="src/assets/images/icon-new-window.svg"
-          alt="new-window-icon"
-        />
-      </div>
-    </footer>
-  );
-}
