@@ -6,7 +6,8 @@ export default function Search() {
 
   function handleKeyPress(event) {
     if (event.key === "Enter") {
-      setVerb((currentVerb) => event.target.value);
+      const validVerb = event.target.value.toLowerCase().replaceAll(" ", "");
+      setVerb((currentVerb) => validVerb);
     }
   }
 

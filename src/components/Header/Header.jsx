@@ -2,7 +2,7 @@ import { useAppContext } from "../../context/AppContext";
 import styles from "./Header.module.scss";
 
 export default function Header() {
-  const {tense, setTense} = useAppContext;
+  const { tense, setTense } = useAppContext();
 
   function handleTenseSelect(event) {
     setTense((currentTense) => event.target.value);
@@ -20,13 +20,14 @@ export default function Header() {
       <nav className={styles.navbar}>
         <div className={styles.tenseGroup}>
           <select value={tense} onChange={handleTenseSelect}>
-            <option value="present">Présent</option>
-            <option value="futur">Futur</option>
-            <option value="passe-simple">Passé simple</option>
-            <option value="passe-compose">Passé composé</option>
-            <option value="plus-que-parfait">Plus que parfait</option>
-            <option value="imparfait">Imparfait</option>
-            <option value="subjonctif-present">Subjonctif présent</option>
+            <option value="PRESENT">Présent</option>
+            <option value="FUTUR">Futur</option>
+            <option value="PASSE_SIMPLE">Passé simple</option>
+            <option value="PASSE_COMPOSE">Passé composé</option>
+            <option value="PLUS_QUE_PARFAIT">Plus que parfait</option>
+            <option value="IMPARFAIT">Imparfait</option>
+            <option value="SUBJONCTIF_PRESENT">Subjonctif présent</option>
+            <option value="CONDITIONNEL_PRESENT">Conditionnel</option>
           </select>
           <img
             src="src/assets/images/icon-arrow-down.svg"
