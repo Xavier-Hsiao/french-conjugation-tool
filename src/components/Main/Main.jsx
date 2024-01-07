@@ -1,9 +1,12 @@
+import { useAppContext } from "../../context/AppContext";
 import styles from "./Main.module.scss";
 
 export default function Main() {
+  const { verb, setVerb, tense, setTense } = useAppContext();
+
   return (
     <main>
-      <h1>Aller</h1>
+      <h1>{verb}</h1>
       <div className={styles.divider}>
         <p>Conjugaison</p>
       </div>

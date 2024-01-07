@@ -1,6 +1,13 @@
+import { useAppContext } from "../../context/AppContext";
 import styles from "./Header.module.scss";
 
 export default function Header() {
+  const {tense, setTense} = useAppContext;
+
+  function handleTenseSelect(event) {
+    setTense((currentTense) => event.target.value);
+  }
+
   return (
     <header className={styles.header}>
       <div className={styles.imageWrapper}>
@@ -12,7 +19,7 @@ export default function Header() {
       </div>
       <nav className={styles.navbar}>
         <div className={styles.tenseGroup}>
-          <select>
+          <select value={tense} onChange={handleTenseSelect}>
             <option value="present">Présent</option>
             <option value="futur">Futur</option>
             <option value="passe-simple">Passé simple</option>
