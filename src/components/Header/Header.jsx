@@ -12,7 +12,7 @@ export default function Header() {
     <header className={styles.header}>
       <div className={styles.imageWrapper}>
         <img
-          src="src/assets/images/logo.svg"
+          src="https://raw.githubusercontent.com/Xavier-Hsiao/french-conjugation-tool/master/src/assets/images/logo.svg"
           alt="logo"
           className={styles.logo}
         />
@@ -30,7 +30,7 @@ export default function Header() {
             <option value="CONDITIONNEL_PRESENT">Conditionnel</option>
           </select>
           <img
-            src="src/assets/images/icon-arrow-down.svg"
+            src="https://raw.githubusercontent.com/Xavier-Hsiao/french-conjugation-tool/master/src/assets/images/icon-arrow-down.svg"
             alt="selection-down"
             className={styles.down}
           />
@@ -42,7 +42,7 @@ export default function Header() {
           </label>
           <div>
             <img
-              src="src/assets/images/icon-moon.svg"
+              src="https://raw.githubusercontent.com/Xavier-Hsiao/french-conjugation-tool/master/src/assets/images/icon-moon.svg"
               alt="dark-mode-icon"
               className={styles.moon}
             />

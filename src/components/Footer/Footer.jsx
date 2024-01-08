@@ -16,7 +16,7 @@ export default function Footer() {
           🤓 click me to see more information about {verb}
         </a>
         <img
-          src="src/assets/images/icon-new-window.svg"
+          src="https://raw.githubusercontent.com/Xavier-Hsiao/french-conjugation-tool/master/src/assets/images/icon-new-window.svg"
           alt="new-window-icon"
         />
       </div>

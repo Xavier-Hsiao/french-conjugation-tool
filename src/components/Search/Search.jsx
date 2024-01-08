@@ -24,10 +24,16 @@ export default function Search() {
         defaultValue={verb}
         onKeyDown={handleKeyPress}
       />
-      <img src="src/assets/images/icon-search.svg" alt="search-icon" />
+      <img
+        src="https://raw.githubusercontent.com/Xavier-Hsiao/french-conjugation-tool/master/src/assets/images/icon-search.svg"
+        alt="search-icon"
+      />
       {verb.length > 0 ? null : (
         <div className={styles.warningText}>
-          <p>Woops! Can't be empty...Put a valid verb in and press <code>Enter</code> again.</p>
+          <p>
+            Woops! Can't be empty...Put a valid verb in and press{" "}
+            <code>Enter</code> again.
+          </p>
         </div>
       )}
     </div>
