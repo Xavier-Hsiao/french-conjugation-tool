@@ -2,9 +2,10 @@ import { useAppContext } from "../../context/AppContext";
 import * as FrenchVerbs from "french-verbs";
 import Lefff from "french-verbs-lefff/dist/conjugations.json";
 import styles from "./Main.module.scss";
+// import { useEffect } from "react";
 
 export default function Main() {
-  const { verb, tense } = useAppContext();
+  const { verb, tense, isVerbValid, setIsVerbValid } = useAppContext();
   // According to french-verb package definitions
   const person = [
     { personName: "Je", personIndex: 0, agreeGender: "M", agreeNumber: "S" },
@@ -16,21 +17,40 @@ export default function Main() {
     { personName: "Ils", personIndex: 5, agreeGender: "M", agreeNumber: "P" },
     { personName: "Elles", personIndex: 5, agreeGender: "F", agreeNumber: "P" },
   ];
-  // Get auxiliary of the verb, being être or avoir
-  const aux = FrenchVerbs.getAux(verb);
+
   // Check whether the verb users input exists in Lefff dictionary object
-  function isVerbValid(verb) {
-    return verb in Lefff;
+  function checkValidity(verb) {
+    setIsVerbValid(verb in Lefff);
   }
 
+  checkValidity(verb);
+
+  // Ensure it runs after the first render
+  // useEffect(() => {
+  //   setIsVerbValid(verb in Lefff);
+  // }, [isVerbValid, setIsVerbValid]);
+
+  if (!isVerbValid)
+    return (
+      <div className={styles.error}>
+        <h3>😥 No Definitions Found</h3>
+        <p>
+          Sorry pal, we could not find definitions for the verb you were looking
+          for. Please check the verb you entered is correct and valid. You must
+          provide the infinitive verb.
+        </p>
+      </div>
+    );
+
+  // Get auxiliary of the verb, being être or avoir
+  const aux = FrenchVerbs.getAux(verb);
+
   function getResult(verb, tense, personIndex, aux, gender, number) {
-    return isVerbValid(verb)
-      ? FrenchVerbs.getConjugation(Lefff, verb, tense, personIndex, {
-          aux: aux,
-          agreeGender: gender,
-          agreeNumber: number,
-        })
-      : "";
+    FrenchVerbs.getConjugation(Lefff, verb, tense, personIndex, {
+      aux,
+      agreeGender: gender,
+      agreeNumber: number,
+    });
   }
 
   return (
@@ -41,23 +61,19 @@ export default function Main() {
         <p>Conjugaison</p>
       </div>
       <div className={styles.result}>
-        {isVerbValid(verb) ? (
-          person.map((p, i) => (
-            <p key={i}>
-              {p.personName}{" "}
-              {getResult(
-                verb,
-                tense,
-                p.personIndex,
-                aux,
-                p.agreeGender,
-                p.agreeNumber
-              )}
-            </p>
-          ))
-        ) : (
-          <h3>😥 No conjugations found! Did you provide a valid verb?</h3>
-        )}
+        {person.map((p, i) => (
+          <p key={i}>
+            {p.personName}{" "}
+            {getResult(
+              verb,
+              tense,
+              p.personIndex,
+              aux,
+              p.agreeGender,
+              p.agreeNumber
+            )}
+          </p>
+        ))}
       </div>
     </main>
   );

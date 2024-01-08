@@ -2,13 +2,17 @@ import { useAppContext } from "../../context/AppContext";
 import styles from "./Footer.module.scss";
 
 export default function Footer() {
-  const { verb } = useAppContext();
+  const { verb, isVerbValid } = useAppContext();
 
-  return (
+  return isVerbValid ? (
     <footer>
       <div className={styles.source}>
         <span>Source:</span>
-        <a href={`https://fr.wiktionary.org/wiki/${verb}`} target="_blank">
+        <a
+          href={`https://fr.wiktionary.org/wiki/${verb}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           🤓 click me to see more information about {verb}
         </a>
         <img
@@ -17,5 +21,5 @@ export default function Footer() {
         />
       </div>
     </footer>
-  );
+  ) : null;
 }
