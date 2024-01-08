@@ -25,6 +25,8 @@ Keep practice and be a French master my friend!
 
 ## 👁️ Live demo
 
+👉 https://super-druid-5a44be.netlify.app/
+
 ![screenshot](https://github.com/Xavier-Hsiao/french-conjugation-tool/blob/master/src/assets/images/french-conjugation-tool.png)
 
 ## 🧩 Built with
