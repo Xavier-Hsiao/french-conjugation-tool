@@ -25,12 +25,14 @@ Keep practice and be a French master my friend!
 
 ## 👁️ Live demo
 
+![screenshot](https://github.com/Xavier-Hsiao/french-conjugation-tool/blob/master/src/assets/images/french-conjugation-tool.png)
 
 ## 🧩 Built with
+
 [![built with](https://skillicons.dev/icons?i=js,html,sass,react,vite,netlify)](https://skillicons.dev)
 
-
 ## 🚀 Installation
+
 1. Clone the project to your local environment
 
 ```bash
@@ -59,4 +61,3 @@ $ npm run dev
 - vite ^5.0.8
 - french-verbs ^5.3.0
 - french-verbs-lefff ^3.3.0
-
