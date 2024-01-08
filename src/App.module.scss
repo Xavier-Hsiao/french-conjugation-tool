@@ -141,3 +141,9 @@ body {
   height: 100vh;
   margin: 0 auto;
 }
+
+@media screen and (max-width: 780px) {
+  .container {
+    margin: 0 50px;
+  }
+}

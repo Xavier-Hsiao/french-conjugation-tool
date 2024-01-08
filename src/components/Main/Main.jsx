@@ -46,11 +46,13 @@ export default function Main() {
   const aux = FrenchVerbs.getAux(verb);
 
   function getResult(verb, tense, personIndex, aux, gender, number) {
-    FrenchVerbs.getConjugation(Lefff, verb, tense, personIndex, {
+    const result = FrenchVerbs.getConjugation(Lefff, verb, tense, personIndex, {
       aux,
       agreeGender: gender,
       agreeNumber: number,
     });
+
+    return result;
   }
 
   return (
