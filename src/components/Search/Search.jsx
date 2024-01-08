@@ -7,7 +7,7 @@ export default function Search() {
   function handleKeyPress(event) {
     if (event.key === "Enter") {
       setVerb((currentVerb) =>
-        event.target.value.toLowerCase().replaceAll(' ', '')
+        event.target.value.toLowerCase().replaceAll(" ", "")
       );
     }
   }
@@ -16,11 +16,20 @@ export default function Search() {
     <div className={styles.search}>
       <input
         type="text"
-        className={styles.searchInput}
+        className={
+          verb.length > 0
+            ? styles.searchInput
+            : `${styles.warning} ${styles.searchInput}`
+        }
         defaultValue={verb}
         onKeyDown={handleKeyPress}
       />
       <img src="src/assets/images/icon-search.svg" alt="search-icon" />
+      {verb.length > 0 ? null : (
+        <div className={styles.warningText}>
+          <p>Woops! Can't be empty...Put a valid verb in and press <code>Enter</code> again.</p>
+        </div>
+      )}
     </div>
   );
 }

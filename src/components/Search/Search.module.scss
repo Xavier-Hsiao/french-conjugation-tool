@@ -23,7 +23,7 @@
 
     &:focus {
       outline-style: solid;
-      outline-color: color.$highlight-primary;;
+      outline-color: color.$highlight-primary;
       color: color.$highlight-primary;
     }
   }
@@ -31,5 +31,18 @@
   img {
     position: absolute;
     right: 20px;
+  }
+
+  // Combine the classes without space between to target element with both classes applied
+  .searchInput.warning {
+    outline-style: none;
+    border: 1px solid color.$warning;
+  }
+
+  .warningText {
+    position: absolute;
+    top: 120%;
+    left: 0;
+    color: color.$warning;
   }
 }
