@@ -1,34 +1,12 @@
 import { useAppContext } from "../../context/AppContext";
 import * as FrenchVerbs from "french-verbs";
-import Lefff from "french-verbs-lefff/dist/conjugations.json";
 import styles from "./Main.module.scss";
-// import { useEffect } from "react";
 
 export default function Main() {
-  const { verb, tense, isVerbValid, setIsVerbValid } = useAppContext();
+  const { verb, isVerbValid, checkValidity, displayResult } = useAppContext();
   // According to french-verb package definitions
-  const person = [
-    { personName: "Je", personIndex: 0, agreeGender: "M", agreeNumber: "S" },
-    { personName: "Tu", personIndex: 1, agreeGender: "M", agreeNumber: "S" },
-    { personName: "Il", personIndex: 2, agreeGender: "M", agreeNumber: "S" },
-    { personName: "Elle", personIndex: 2, agreeGender: "F", agreeNumber: "S" },
-    { personName: "Nous", personIndex: 3, agreeGender: "M", agreeNumber: "P" },
-    { personName: "Vous", personIndex: 4, agreeGender: "M", agreeNumber: "P" },
-    { personName: "Ils", personIndex: 5, agreeGender: "M", agreeNumber: "P" },
-    { personName: "Elles", personIndex: 5, agreeGender: "F", agreeNumber: "P" },
-  ];
-
-  // Check whether the verb users input exists in Lefff dictionary object
-  function checkValidity(verb) {
-    setIsVerbValid(verb in Lefff);
-  }
 
   checkValidity(verb);
-
-  // Ensure it runs after the first render
-  // useEffect(() => {
-  //   setIsVerbValid(verb in Lefff);
-  // }, [isVerbValid, setIsVerbValid]);
 
   if (!isVerbValid)
     return (
@@ -45,16 +23,6 @@ export default function Main() {
   // Get auxiliary of the verb, being être or avoir
   const aux = FrenchVerbs.getAux(verb);
 
-  function getResult(verb, tense, personIndex, aux, gender, number) {
-    const result = FrenchVerbs.getConjugation(Lefff, verb, tense, personIndex, {
-      aux,
-      agreeGender: gender,
-      agreeNumber: number,
-    });
-
-    return result;
-  }
-
   return (
     <main>
       {/* Capitalize the first character of verb */}
@@ -62,21 +30,7 @@ export default function Main() {
       <div className={styles.divider}>
         <p>Conjugaison</p>
       </div>
-      <div className={styles.result}>
-        {person.map((p, i) => (
-          <p key={i}>
-            {p.personName}{" "}
-            {getResult(
-              verb,
-              tense,
-              p.personIndex,
-              aux,
-              p.agreeGender,
-              p.agreeNumber
-            )}
-          </p>
-        ))}
-      </div>
+      <div className={styles.result}>{displayResult(aux)}</div>
     </main>
   );
 }
