@@ -1,11 +1,19 @@
+import { useContext } from "react";
 import { useAppContext } from "../../context/AppContext";
 import styles from "./Header.module.scss";
+import { ThemeContext } from "../../context/ThemeContext";
 
 export default function Header() {
   const { tense, setTense } = useAppContext();
+  const { theme, setTheme } = useContext(ThemeContext);
 
   function handleTenseSelect(event) {
     setTense((currentTense) => event.target.value);
+  }
+
+  function handleThemeChange() {
+    const isThemeDark = theme === "dark";
+    setTheme(isThemeDark ? "light" : "dark");
   }
 
   return (
@@ -37,7 +45,11 @@ export default function Header() {
         </div>
         <div className={styles.modeGroup}>
           <label className={styles.switch}>
-            <input type="checkbox" />
+            <input
+              type="checkbox"
+              onChange={handleThemeChange}
+              checked={theme === "dark"}
+            />
             <span className={`${styles.slider} ${styles.round}`}></span>
           </label>
           <div>

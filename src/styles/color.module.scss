@@ -7,3 +7,41 @@ $highlight-primary: #a445ed;
 $point-primary: #8f19e8;
 $search: #cdcdcd;
 $warning: #ff5252;
+
+$themes: (
+  light: (
+    background: $background-light,
+    textPrimary: $text-primary-light,
+  ),
+  dark: (
+    background: $background-dark,
+    textPrimary: $text-primary-dark,
+  ),
+);
+
+@mixin themify($themes) {
+  // Iterate through $themes, $theme as key (light, dark) and $map (background: #fff) as value
+  @each $theme, $map in $themes {
+    // Create dynamic selector using interpolation
+    .theme-#{$theme} & {
+      // Create a global var to store theme specific value
+      $theme-map: () !global;
+      // Iterate through $theme, $key as key (background) and $sub-map as value (#fff)
+      @each $key, $sub-map in $theme {
+        $value: map-get(map-get($themes, $theme), "#{$key}");
+        $theme-map: map-merge(
+          $theme-map,
+          (
+            $key: $value,
+          )
+        ) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function themed($key) {
+  @return map-get($theme-map, $key);
+}

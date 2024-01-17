@@ -1,4 +1,4 @@
-@use "./styles/color.module.scss";
+@import "./styles/color.module.scss";
 
 // Rest
 html,
@@ -133,7 +133,10 @@ table {
 
 // Body
 body {
-  background-color: color.$background-light;
+  @include themify($themes) {
+    background-color: themed(background);
+  }
+  // background-color: #fff;
 }
 
 .container {
