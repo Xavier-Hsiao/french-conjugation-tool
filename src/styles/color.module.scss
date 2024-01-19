@@ -10,6 +10,7 @@ $point-primary: #8f19e8;
 $search: #cdcdcd;
 $warning: #ff5252;
 
+
 $themes: (
   light: (
     background: $background-light,
@@ -25,7 +26,7 @@ $themes: (
   // Iterate through $themes, $theme as key (light, dark) and $map (background: #fff) as value
   @each $theme, $map in $themes {
     // Create dynamic selector using interpolation
-    .theme-#{$theme} & {
+    .#{$theme} & {
       // Create a global var to store theme specific value
       $theme-map: () !global;
       // Iterate through $theme, $key as key (background) and $sub-map as value (#fff)

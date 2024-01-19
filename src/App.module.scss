@@ -134,7 +134,7 @@ table {
 // Body
 body {
   @include color.themify(color.$themes) {
-    background-color: themed(background);
+    background-color: color.themed("background");
   }
 }
 

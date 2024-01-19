@@ -134,13 +134,6 @@ table {
   box-sizing: border-box;
 }
 
-.theme-light body {
-  background-color: themed(background);
-}
-.theme-dark body {
-  background-color: themed(background);
-}
-
 .container {
   max-width: 736px;
   height: 100vh;

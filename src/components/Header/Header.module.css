@@ -5,11 +5,11 @@
   margin-top: 20px;
   margin-bottom: 52px;
 }
-.theme-light .header {
-  background-color: themed(background);
+.light .header {
+  background-color: themed("background");
 }
-.theme-dark .header {
-  background-color: themed(background);
+.dark .header {
+  background-color: themed("background");
 }
 .header .logo {
   width: 32px;
