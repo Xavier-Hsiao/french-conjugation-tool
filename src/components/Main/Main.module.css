@@ -1,0 +1,49 @@
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin-bottom: 50px;
+}
+main h1 {
+  font-size: 4rem;
+}
+main .divider {
+  font-size: 1.5rem;
+  color: #757575;
+}
+main .divider p {
+  position: relative;
+}
+main .divider p::after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 60%;
+  width: 580px;
+  height: 1px;
+  background-color: #e9e9e9;
+}
+main .result {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  font-size: 1.2rem;
+  letter-spacing: 0.1rem;
+}
+
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  margin: 120px;
+}
+.error h3 {
+  font-size: 2rem;
+}
+.error p {
+  text-align: center;
+  line-height: 1.5;
+}/*# sourceMappingURL=Main.module.css.map */

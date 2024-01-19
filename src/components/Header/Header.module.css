@@ -1,0 +1,100 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 52px;
+}
+.theme-light .header {
+  background-color: themed(background);
+}
+.theme-dark .header {
+  background-color: themed(background);
+}
+.header .logo {
+  width: 32px;
+  height: 36.5px;
+}
+.header .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.header .navbar .tenseGroup {
+  position: relative;
+}
+.header .navbar .tenseGroup select {
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 200px;
+  height: 24px;
+  padding: 0 10px;
+  outline-style: none;
+  border: none;
+  border-right: 1px solid #979797;
+  font-size: 18px;
+  font-weight: bold;
+  color: #2d2d2d;
+  cursor: pointer;
+}
+.header .navbar .tenseGroup .down {
+  position: absolute;
+  top: 50%;
+  right: 10%;
+  z-index: 0;
+  transform: translateY(-50%);
+  width: 12px;
+  height: 6px;
+}
+.header .navbar .modeGroup {
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 80px;
+  padding-left: 20px;
+}
+.header .navbar .modeGroup .switch {
+  display: inline;
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+.header .navbar .modeGroup .switch input {
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
+.header .navbar .modeGroup .switch .slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #979797;
+  border-radius: 10px;
+  transition: 0.4s;
+  cursor: pointer;
+}
+.header .navbar .modeGroup .switch .slider:before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  bottom: 3px;
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+.header .navbar .modeGroup .switch input:checked + .slider {
+  background-color: #a445ed;
+}
+.header .navbar .modeGroup .switch input:checked + .slider:before {
+  transform: translateX(17px);
+}
+.header .moon {
+  width: 20px;
+  height: 20px;
+}/*# sourceMappingURL=Header.module.css.map */

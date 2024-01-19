@@ -1,3 +1,5 @@
+@use "sass:map";
+
 $background-light: #fff;
 $background-dark: #050505;
 $text-primary-light: #2d2d2d;
@@ -37,7 +39,7 @@ $themes: (
         ) !global;
       }
       @content;
-      $theme-map: null !global;
+      // $theme-map: null !global;
     }
   }
 }

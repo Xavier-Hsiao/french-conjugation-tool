@@ -1,0 +1,8 @@
+.source {
+  display: flex;
+  gap: 10px;
+  font-size: 1rem;
+}
+.source a {
+  text-decoration: none;
+}/*# sourceMappingURL=Footer.module.css.map */

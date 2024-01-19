@@ -7,6 +7,10 @@
   margin-top: 20px;
   margin-bottom: 52px;
 
+  @include color.themify(color.$themes) {
+    background-color: themed(background);
+  }
+
   .logo {
     width: 32px;
     height: 36.5px;
