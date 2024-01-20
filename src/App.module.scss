@@ -105,6 +105,11 @@ section {
 }
 body {
   line-height: 1;
+
+  @include color.themify(color.$themes) {
+    background-color: color.themed("background");
+    color: color.themed("textPrimary");
+  }
 }
 ol,
 ul {

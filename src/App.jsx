@@ -10,15 +10,15 @@ import { useState } from "react";
 export default function App() {
   const [theme, setTheme] = useState("light");
   return (
-    <div className={`${theme} ${styles.container}`}>
-      <AppProvider>
-        <ThemeContext.Provider value={{ theme, setTheme }}>
+    <AppProvider>
+      <ThemeContext.Provider value={{ theme, setTheme }}>
+        <div className={`${theme} ${styles.container}`}>
           <Header />
           <Search />
           <Main />
           <Footer />
-        </ThemeContext.Provider>
-      </AppProvider>
-    </div>
+        </div>
+      </ThemeContext.Provider>
+    </AppProvider>
   );
 }

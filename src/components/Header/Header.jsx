@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect, useRef } from "react";
 import { useAppContext } from "../../context/AppContext";
 import styles from "./Header.module.scss";
 import { ThemeContext } from "../../context/ThemeContext";
@@ -6,6 +6,7 @@ import { ThemeContext } from "../../context/ThemeContext";
 export default function Header() {
   const { tense, setTense } = useAppContext();
   const { theme, setTheme } = useContext(ThemeContext);
+  const isInitialRender = useRef(true);
 
   function handleTenseSelect(event) {
     setTense((currentTense) => event.target.value);
@@ -15,6 +16,25 @@ export default function Header() {
     const isThemeDark = theme === "dark";
     setTheme(isThemeDark ? "light" : "dark");
   }
+
+  useEffect(() => {
+    const body = document.body;
+
+    if (!isInitialRender.current) {
+      if (theme === "dark") {
+        body.classList.remove("light");
+        body.classList.add("dark");
+      } else {
+        body.classList.remove("dark");
+        body.classList.add("light");
+      }
+    } else {
+      // If it's the initial render, add light class
+      body.classList.add("light");
+      // Update the ref to indicate that subsequent renders are not initial
+      isInitialRender.current = false;
+    }
+  }, [theme]);
 
   return (
     <header className={styles.header}>

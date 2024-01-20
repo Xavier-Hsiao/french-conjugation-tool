@@ -1,5 +1,11 @@
 @use "../../styles/color.module.scss";
 
+footer {
+  @include color.themify(color.$themes) {
+    background-color: color.themed("background");
+  }
+}
+
 .source {
   display: flex;
   gap: 10px;
