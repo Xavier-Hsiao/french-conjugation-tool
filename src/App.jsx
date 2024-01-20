@@ -12,11 +12,13 @@ export default function App() {
   return (
     <AppProvider>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div className={`${theme} ${styles.container}`}>
-          <Header />
-          <Search />
-          <Main />
-          <Footer />
+        <div className={`${theme}`}>
+          <div className={styles.container}>
+            <Header />
+            <Search />
+            <Main />
+            <Footer />
+          </div>
         </div>
       </ThemeContext.Provider>
     </AppProvider>

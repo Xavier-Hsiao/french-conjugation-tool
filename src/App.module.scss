@@ -103,7 +103,9 @@ nav,
 section {
   display: block;
 }
+
 body {
+  height: 100%;
   line-height: 1;
 
   @include color.themify(color.$themes) {
@@ -111,6 +113,7 @@ body {
     color: color.themed("textPrimary");
   }
 }
+
 ol,
 ul {
   list-style: none;
@@ -136,16 +139,9 @@ table {
   box-sizing: border-box;
 }
 
-// Body
-body {
-  @include color.themify(color.$themes) {
-    background-color: color.themed("background");
-  }
-}
-
 .container {
   max-width: 736px;
-  height: 100vh;
+  // height: 100%;
   margin: 0 auto;
 }
 
