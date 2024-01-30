@@ -103,9 +103,11 @@ nav,
 section {
   display: block;
 }
-
-body {
+html {
   height: 100%;
+}
+body {
+  min-height: 100%;
   line-height: 1;
 
   @include color.themify(color.$themes) {
@@ -137,6 +139,10 @@ table {
 * {
   margin: 0;
   box-sizing: border-box;
+}
+
+.appWrapper {
+  height: 100%;
 }
 
 .container {

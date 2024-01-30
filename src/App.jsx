@@ -12,7 +12,7 @@ export default function App() {
   return (
     <AppProvider>
       <ThemeContext.Provider value={{ theme, setTheme }}>
-        <div className={`${theme}`}>
+        <div className={`${theme} ${styles.appWrapper}`}>
           <div className={styles.container}>
             <Header />
             <Search />
